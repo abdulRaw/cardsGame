@@ -11,12 +11,10 @@ import CardLoader from "../cardLoader/cardLoader";
 import Loading from "../../Loading/Loading";
 import "./GameBoard.css"
 
-const Score = (props) => {
-  return <>Score</>;
-};
-
-const Timmer = (props) => {
-  return <>Time</>;
+const SmallDisplayBoard = (props) => {
+  const {name,value} = props;
+  //console.log(name,value);
+return <><span className="btn">{`${name} : ${value}`}</span></>;
 };
 
 let spades_Cards = [];
@@ -102,9 +100,10 @@ const GameBoard = (props) => {
   return (<>{ cards.length > 0 ? 
 
     <>
-      <button onClick = {handleLogOut}>LogOut</button>
-      <div id="game-score-board">
-        <Score color={"blue"} Score={52-scattered_cards.length} /> <Timmer color={"red"} timmer={null} />
+      
+      <div className="gameBoard-main-header">
+        <SmallDisplayBoard name={"score"} value={52-scattered_cards.length} /> <SmallDisplayBoard name={"Timmer"} value={0} />
+        <button onClick = {handleLogOut}>LogOut</button>
       </div>
       <div className="cards-scattered">
       {<CardLoader view="card" cards={scattered_cards} />}

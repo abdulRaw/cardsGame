@@ -1,3 +1,16 @@
-.cards-holders{
-    display: inline-block;
+.gameBoard-main-header{
+    display: flex;
+    flex-direction: row;
+    font-size: large;
+    font-weight:bolder;
+    justify-content:space-around;
+    margin-bottom: 2em;
+
+    
+}
+.btn{
+    width: 8em;
+    height: 1.5em;
+    border-radius: 3px;
+    background-color: chartreuse;
 }
