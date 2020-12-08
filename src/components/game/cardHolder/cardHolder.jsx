@@ -2,7 +2,7 @@ import Card from "../cardLoader/card/card";
 
 const CardHolder = (props) => {
   const { topCard, holderType } = props;
-  console.log(topCard, holderType);
+  console.log(topCard, holderType,"Card Holder......");
   return (
     <>
       <Card isDrag={false} view={"card"} card={topCard} shape={holderType}>

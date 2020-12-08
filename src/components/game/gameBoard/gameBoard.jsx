@@ -95,16 +95,16 @@ const GameBoard = (props) => {
       })
     : null;
 
-    console.log(scattered_cards)
+    console.log(scattered_cards,"scattered cards...");
 
 
 
   return (<>{ cards.length > 0 ? 
 
-    <div>
+    <>
       <button onClick = {handleLogOut}>LogOut</button>
       <div id="game-score-board">
-        {/* <Score color={} Score={} /> <Timmer color={} timmer={} /> */}
+        <Score color={"blue"} Score={52-scattered_cards.length} /> <Timmer color={"red"} timmer={null} />
       </div>
       <div className="cards-scattered">
       {<CardLoader view="card" cards={scattered_cards} />}
@@ -154,7 +154,7 @@ const GameBoard = (props) => {
         />
       }
       </div>
-    </div>
+    </>
 : <Loading/>}</>
     );
 };

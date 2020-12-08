@@ -12,6 +12,9 @@ export class Card{
     this.isDraging =isDraging;
   
   }
+  setIsDraging=(val)=>{
+    this.isDraging = val;
+  }
   static getCardValue = (value) => {
     return value < 11 ? value : powerCards[value % 11];
   };
