@@ -21,9 +21,9 @@ And click on Login
 
 ### GameLoad's
 
-Choose a card from the scattered card's . Place it Card Holder
+Choose a card from the scattered card's . Place it in Card Holder
 
-If selected card is placed on a correct place Card-Holder . Then selected card disappear . And selected card will be added into Card-Holder
+If selected card is placed on a correct  Card-Holder . Then selected card disappear . And selected card will be added into Card-Holder stack
 
 If selected card is not placed in correct card-Holder. 
 Game Resets...
