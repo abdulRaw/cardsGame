@@ -1,9 +1,12 @@
 .App {
   text-align: center;
   background-image: linear-gradient( 181deg,  rgba(249,97,100,1) 0.4%, rgba(250,126,129,1) 89.6% );
-  height: 120ex;
-  
 }
 
+  
+
+.login{
+  height: 100px;
+}
 
 

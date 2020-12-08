@@ -19,11 +19,11 @@ const Timmer = (props) => {
   return <>Time</>;
 };
 
-let SPADESCards = [];
-let HEARTSCards = [];
-let DIAMONDSCards = [];
-let CLUBSCards = [];
-let SCATERcards = [];
+let spades_Cards = [];
+let hearts_cards = [];
+let diamonds_Cards = [];
+let clubs_cards = [];
+let scattered_cards = [];
 const GameBoard = (props) => {
   const { cards, userName } = props;
   const history = useHistory();
@@ -66,32 +66,36 @@ const GameBoard = (props) => {
 
 
   //console.log(cards,"from compponents.....")
-  SCATERcards = cards ? cards.map((card, index) => {
+  scattered_cards = cards ? cards.filter((card, index) => {
         if (card.isPlaced) {
           switch (card.type) {
             case cardTypeObj.SPADES: {
-              SPADESCards.push(card);
+              spades_Cards.push(card);
               break;
             }
             case cardTypeObj.DIAMONDS: {
-              DIAMONDSCards.push(card);
+              diamonds_Cards.push(card);
               break;
             }
             case cardTypeObj.CLUBS: {
-              CLUBSCards.push(card);
+              clubs_cards.push(card);
               break;
             }
             case cardTypeObj.HEARTS: {
-              HEARTSCards.push(cards);
+              hearts_cards.push(cards);
               break;
             }
             default:
               break;
           }
           return false;
-        } else return card;
+        } else {
+            console.log("nxnciak");
+          return true};
       })
     : null;
+
+    console.log(scattered_cards)
 
 
 
@@ -103,7 +107,7 @@ const GameBoard = (props) => {
         {/* <Score color={} Score={} /> <Timmer color={} timmer={} /> */}
       </div>
       <div className="cards-scattered">
-      {<CardLoader view="card" cards={SCATERcards} />}
+      {<CardLoader view="card" cards={scattered_cards} />}
       </div>
 
       <div className="cards-holders">
@@ -112,8 +116,8 @@ const GameBoard = (props) => {
         <CardHolder
           holderType={cardTypeObj.SPADES.name}
           topCard={
-            SPADESCards.length > 0
-              ? SPADESCards[SPADESCards.length - 1]
+            spades_Cards.length > 0
+              ?spades_Cards [spades_Cards.length - 1]
               : null
           }
         />
@@ -122,8 +126,8 @@ const GameBoard = (props) => {
         <CardHolder
           holderType={cardTypeObj.CLUBS.name}
           topCard={
-            CLUBSCards.length > 0
-              ? CLUBSCards[CLUBSCards.length - 1]
+            clubs_cards.length > 0
+              ? clubs_cards[clubs_cards.length - 1]
               : null
           }
         />
@@ -131,10 +135,10 @@ const GameBoard = (props) => {
       {
         <CardHolder
           holderType={cardTypeObj.HEARTS.name}
-          //HEARTSCards
+          //hearts_cards
           topCard={
-            HEARTSCards.length > 0
-              ? HEARTSCards[HEARTSCards.length - 1]
+            hearts_cards.length > 0
+              ? hearts_cards[hearts_cards.length - 1]
               : null
           }
         />
@@ -143,8 +147,8 @@ const GameBoard = (props) => {
         <CardHolder
           holderType={cardTypeObj.DIAMONDS.name}
           topCard={
-            DIAMONDSCards.length > 0
-              ? DIAMONDSCards[DIAMONDSCards.length - 1]
+            diamonds_Cards.length > 0
+              ? diamonds_Cards[diamonds_Cards.length - 1]
               : null
           }
         />

@@ -9,7 +9,7 @@ import "./Card.css";
 const Card = (props) => {
   const { card, view, isDrag, shape, cardsData } = props;
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const pressed= useState(card ? card.isDraging : false);
+  const pressed= card ? card.isDraging : false;
   
   const ref = useRef();
   useEffect(() => {
@@ -17,13 +17,11 @@ const Card = (props) => {
       ref.current.style.transform = `translate(${position.x}px, ${position.y}px)`;
     }
     return () => {
-
     };
   }, [position]);
 
   const onMouseMove = (event) => {
     if(event.target.name==="card" && card.isDraging===false) return;
-    console.log("============================",card,event);
     event.preventDefault();
 
     if (pressed) {
@@ -43,6 +41,7 @@ const Card = (props) => {
     const prevEventdataIndex = copyOfData.findIndex((ele,index)=> ele._id===eventObj._id) 
     copyOfData[prevEventdataIndex].isDraging = false;
 
+    console.log(currentDropCardType,eventObj.type)
     if(currentDropCardType===eventObj.type){
       console.log("one at rite position.....");
       copyOfData[prevEventdataIndex].isPlaced = true;
@@ -59,17 +58,7 @@ const Card = (props) => {
     console.log("reseting....");
     props.cardDragActionOrigin(null);
     props.cardsDataActionCreator(ClassCard.cardDataCreator());
-    
-
-    
-
-    
-   
-    //eventRef.current.style.transform = `translate(${initalPos.x}px, ${initalPos.y}px)`;
-    
-   
-
-    // moving card to its placeholder.....;
+  
     
   };
 
